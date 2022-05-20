@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "label_noise"
+version = "0.1.0"
+description = "Model training application for polymorphic, multi-task, multiheaded computer vision deep learning models."
+authors = ["Suneeta Mall <suneeta.mall@XXXXX.com>"]
+
+[tool.poetry.scripts]
+trainer = "label_noise.app.train:app"
+testcheck_noise = "label_noise.app.check_noise:app"
+
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+requests = "^2.25.1"
+typer = "^0.4"
+tensorboard = "^2.8.0"
+pandas = "^1.4.0"
+torchmetrics = "^0.7.1"
+pytorch-lightning = "^1.5.10"
+rich = "^11.2.0"
+setuptools = "59.5.0" # see https://github.com/pytorch/pytorch/pull/69904
+Pillow = "^9.0.0"
+torch = "^1.11.0"
+torchvision = "^0.12.0"
+matplotlib = "^3.5.1"
+colorcet = "^3.0.0"
+patool = "^1.12"
+rarfile = "^4.0"
+cleanlab = "^2.0.0"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.12.2"
+isort = "^5.10.1"
+black = {extras = ["jupyter"], version = "^22.1.0"}
+mypy = "^0.941"
+jupyterlab = "^3.4.2"
+ipykernel = "^6.13.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "./tests/*"
+]
+norecursedirs = [
+    ".git",
+    "dist",
+]
+cache_dir = "/tmp/.pytest_cache"
+
+
+[tool.isort]
+line_length = 120
+sections=['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+force_alphabetical_sort_within_sections=true
+use_parentheses=true
+force_grid_wrap=false
+include_trailing_comma=true
+multi_line_output=3
+
+
+[tool.black]
+line-length = 120
+
+
+[tool.mypy]
+python_version = 3.8
+explicit_package_bases  = true
+namespace_packages = true
+exclude = [
+    "tests"
+]

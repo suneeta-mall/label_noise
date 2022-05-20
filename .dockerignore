@@ -1,0 +1,17 @@
+.circleci
+.dockerignore
+.gitignore
+.git
+.github
+.idea
+.pytest_cache
+Dockerfile
+README.md
+docker-compose.yml
+docs
+docker-compose-local.yml
+docker-compose-integration.yml
+.devcontainer
+docs
+**/__pycache__
+**/*.pyc
